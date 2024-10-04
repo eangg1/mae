@@ -17,7 +17,7 @@ let isBlowing = false;
                 analyser.getByteTimeDomainData(dataArray);
                 const sum = dataArray.reduce((acc, val) => acc + val, 0);
                 const average = sum / bufferLength;
-                if (average > 130) { // Adjusted threshold to 180 for higher effort blow
+                if (average > 120) { // Adjusted threshold to 180 for higher effort blow
                     if (!isBlowing && !isFlameOff) {
                         isBlowing = true;
                         toggleFlame(); // Turn off the flame when blowing into the microphone
@@ -104,7 +104,6 @@ let isBlowing = false;
                 text: 'tiup lilinnya lewat mic, tiup di mic sekenceng mungkin sampe lilinnya mati (alternatif lain lilinnya dipencet)',
                 imageWidth: 150,
                 imageHeight: 150,
-                imageAlt: 'Wawa',
                 confirmButtonText: 'ayo lihat kuenya',
                 customClass: {
                     container: 'swal-container-netflix',
@@ -116,3 +115,4 @@ let isBlowing = false;
             });
         }
     });
+    

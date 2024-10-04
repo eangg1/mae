@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishes</title>
+</head>
+<body>
+    <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hepi Bedday</title>
+  <link rel="icon" type="image/x-icon" href="android-chrome-192x192.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background: #141414; /* Dark background for Netflix theme */
+      color: #e5e5e5; /* Light text color */
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .card {
+      background: #333; /* Dark card background */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Darker shadow */
+      width: 80vw;
+      max-width: 600px;
+      padding: 20px;
+      position: relative;
+    }
+    
+    .text {
+      text-align: center;
+      color: #e5e5e5;
+      padding: 0 20px;
+    }
+    
+    .text img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      font-size: 1em;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    
+    .playlist {
+      color: #e5e5e5;
+      text-decoration: none;
+      padding: 10px 20px;
+      background: #e50914; /* Netflix red */
+      border-radius: 50px;
+      border: 2px solid #e50914;
+      font-weight: bold;
+      transition: .3s;
+    }
+    
+    .playlist:hover {
+      background: #b81d1d;
+    }
+    
+    .muted {
+      color: #b3b3b3;
+    }
+    
+    audio {
+      display: none;
+      margin: 20px auto;
+    }
+
+    .content {
+      display: none;
+    }
+
+    .read-more {
+      color: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+    .read-less {
+      color: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7em;
+        margin-bottom: 20px;
+      }
+      
+      p {
+        font-size: 0.8em;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .read-more {
+        font-size: 0.8em;
+        color: inherit;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .read-less {
+        font-size: 0.8em;
+        color: inherit;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .playlist {
+        color: #e5e5e5;
+        text-decoration: none;
+        padding: 5px 20px;
+        background: #e50914; /* Netflix red */
+        border-radius: 50px;
+        border: 2px solid #e50914;
+        font-weight: bold;
+        transition: .2s;
+        font-size: 0.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="text">
+        <tr>
+            <td><img src="photo1.jpg" alt="" align="left" style="width: 30%;" /></td>
+            <td><img src="birthday.gif" alt="" align="center" style="width: 30%;" /></td>
+            <td><img src="photo2.jpg" alt="" align="right" style="width: 30%;" /></td>
+        </tr>   
+      <h1>hbd maee</h1>
+      <p>selamat ulang tahun maee! semoga hari ini menjadi awal yg baru dan penuh harapan, di mana setiap detik membawa kebahagiaan dan keberkahan buat mae. semoga Allah senantiasa memberkahi usia mae dengan kesehatan, kebahagiaan, dan kesuksesan. semoga setiap langkah yg mae ambil selalu diiringi dengan rahmat dan petunjuk-Nya. semoga didekatkan dengan impian-impian yg mae harapkan dan semakin kuat dalam menghadapi setiap tantangan.</p>
+      <span class="read-more" onclick="toggleReadMore()">Read More</span>
+      <div class="content" style="display: none;">
+        <p>semoga Allah memberikan kesehatan yg baik, kebijaksanaan dalam setiap keputusan, dan ketenangan hati dalam menjalani setiap ujian yg datang, jadikan diri mae sebagai sumber inspirasi dan kebaikan bagi orang-orang di sekitar mae. jangan ragu buat bermimpi besar, karena Allah selalu bersama mae dalam setiap langkah yg mae ambil.</p>
+        <p>semoga hubungan mae dengan keluarga dan sahabat semakin erat, dan setiap momen yg kita lewati bersama teman yg lain menjadi kenangan yg indah. jangan lupa untuk selalu bersyukur atas nikmat yg telah diberikan, dan sebarkanlah kebaikan di sekitar.</p>
+        <p>sekali lagi, selamat ulang tahun, mae! semoga Allah SWT senantiasa memberkahi mae dengan kebahagiaan dan kesuksesan yang berlimpah. semoga tahun ini menjadi tahun yg penuh berkah dan makna dalam hidup mae.</p>
+        <p><span class="read-less" onclick="toggleReadMore()" style="display: none;">Read Less</span></p>
+      </div>
+      <p class="muted">- Ur Friend <3 -</p>
+      <audio controls autoplay loop>
+        <source src="brthday.mp3" type="audio/ogg">
+        <source src="brthday.mpeg" type="audio/mpeg">
+      </audio>
+      <a href="#" onclick="window.close();" class="playlist">Go Back</a>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+    const audio = document.querySelector('audio');
+    const body = document.body;
+
+    
+    audio.addEventListener('play', () => {
+        body.classList.add('play-music');
+    });
+
+    audio.addEventListener('pause', () => {
+        body.classList.remove('play-music');
+    });
+
+    function toggleReadMore() {
+        var content = document.querySelector('.content');
+        var readMore = document.querySelector('.read-more');
+        var readLess = document.querySelector('.read-less');
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            readMore.style.display = "none";
+            readLess.style.display = "inline";
+        } else {
+            content.style.display = "none";
+            readMore.style.display = "inline";
+            readLess.style.display = "none";
+        }
+    }
+
+</script>
