@@ -270,6 +270,7 @@ nav ul li {
     color: white;
     font-size: 14px;
     line-height: 1.5;
+    cursor:default;
 }
 
 /* Tombol untuk mengunjungi website */
@@ -1298,12 +1299,13 @@ to {
 @media (max-width: 425px) {
     header {
         position: fixed;
-        top: 0;
+        top: 10px;
         width: 100%;
         display: flex;
         justify-content: space-between; /* Elemen rapi tanpa celah besar */
         align-items: center;
-        padding: 5px 10px;
+        padding-left: 30px;
+        padding-right: 30px;
         background: rgba(0, 0, 0, 0.167);
         z-index: 1000;
         transition: background-color 0.3s ease;
@@ -1311,11 +1313,13 @@ to {
     }
 
     header img.logo {
-        width: 8vh; /* Ukuran logo lebih kecil */
+        width: 9vh; /* Ukuran logo lebih kecil */
+        margin: 0px;
     }
 
-    .header-container{
-
+    .header-container {
+        padding: 0px;
+        margin: 0px;
     }
 
     .search-container {
@@ -1335,6 +1339,17 @@ to {
         border: 1px solid #ccc;
         border-radius: 8px;
         outline: none;
+    }
+
+    .search-button {
+        padding: 0px;
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .notification-container {
@@ -1371,11 +1386,13 @@ to {
         height: 24px;
         border-radius: 50%;
         object-fit: cover;
+        margin-left: 10px;
     }
 
     .dropdown-icon {
         width: 6px;
         height: 6px;
+        margin-left: 2px;
         border: solid white;
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
@@ -1385,13 +1402,37 @@ to {
         position: absolute;
         top: 30px;
         right: 0;
-        background: rgb(29, 29, 29);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #141414; /* Latar belakang dropdown */
+        border: 1px solid #e50914;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        width: 150px; /* Lebar dropdown */
+        height: auto;
+        padding: 8px;
+        border-radius: 6px;
+        display: none; /* Tersembunyi secara default */
+        z-index: 10;
+    }
+    
+    .notification-item {
+        margin: 0 0 10px 0; /* Jarak ke bawah untuk tombol */
+        color: white;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+    
+    /* Tombol untuk mengunjungi website */
+    .visit-button {
+        width: 100%; /* Tombol penuh */
         padding: 10px;
+        background-color: #e50914; /* Warna merah khas Netflix */
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        border: none;
         border-radius: 4px;
-        display: flex;
-        flex-direction: column;
-        z-index: 100;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
     }
 
     .dropdown a {
@@ -1400,6 +1441,7 @@ to {
         text-decoration: none;
         color: white;
         white-space: nowrap;
+        font-size: 10px;
     }
 
     .dropdown a:hover {
@@ -1450,23 +1492,28 @@ to {
     }
 
     .hero h1 {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: bold;
         margin-bottom: 6px;
     }
 
     .hero p {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         margin-bottom: 10px;
-        margin-right: 10px;
+        margin-right: 15px;
     }    
 
     .photo-gallery {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-        gap: 8px; /* Kurangi jarak antar foto */
+        gap: 15px; /* Kurangi jarak antar foto */
         margin: 0 10px;
     }
+    
+    .movies-row {
+        padding-left: 15px;
+        padding-right: 15px;
+    }   
 
     .close-modal {
         position: absolute;
@@ -1484,8 +1531,9 @@ to {
 
     .section-title {
         margin: 20px 10px 12px;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         text-align:left; /* Pusatkan judul */
+        padding-left: 30px;
     }
 
     .nav-button {
@@ -1497,16 +1545,16 @@ to {
         border: none;
         padding: 6px;
         cursor: pointer;
-        font-size: 0.5rem;
+        font-size: 12px;
         z-index: 10;
     }
 
     .nav-button.left {
-        left: 15px;
+        left: 10px;
     }
 
     .nav-button.right {
-        right: 15px;
+        right: 10px;
     }
 
     .hero-buttons {
@@ -1517,7 +1565,7 @@ to {
     .hero-buttons button {
         display: inline-block;
         padding: 5px 10px;
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         color: white;
         background-color: rgba(255, 255, 255, 0.2);
         border: none;
@@ -1533,5 +1581,215 @@ to {
 
     .hero-buttons button:hover {
         opacity: 0.8;
+    }
+
+    .page-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+    
+    .indicator {
+        width: 5px;
+        height: 5px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Modal Foto*/
+    .fullscreen-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+    /* Sembunyikan modal secara default */
+    .hidden {
+        display: none;
+    }
+
+    /* Gambar Fullscreen */
+    .fullscreen-img {
+        max-width: 50%;
+        max-height: 50%;
+        object-fit: contain;
+    }
+
+
+
+
+
+
+    /* Modal CSS */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #222;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70vw;
+        max-width: 600px;
+        color: white;
+        border-radius: 10px;
+        position: relative; /* Ensure position relative for child absolute positioning */
+    }
+
+    .modal-content p {
+        font-size: 0.6rem;
+        margin-bottom: 20px;
+    }
+
+    .modal-content img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .modal-content button {
+        padding: 10px 10px;
+        background-color: #e50914;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 5px;
+        margin-right: 10px;
+        text-transform: capitalize;
+    }
+
+    .modal-content button i {
+        font-size: 1.2rem;
+    }
+
+    .modal-content button:hover {
+        opacity: 0.8;
+    }
+
+    .modal-content button:last-child {
+        margin-right: 0;
+    }
+
+    .modal-content .genre {
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: #e50914;
+        margin: 10px 0;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px; /* Adjust this value as needed */
+        right: 10px; /* Adjust this value as needed */
+        font-size: 2rem;
+        color: white;
+        cursor: pointer; /* Ensures the cursor changes to a pointer */
+        z-index: 1001; /* Ensure it's above other elements */
+    }
+
+    .start-episode {
+        margin-top: 20px;
+    }
+
+    .start-episode h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 9px;
+        font-weight: bold;
+        color: white;
+        background-color: #e50914;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
+        cursor: pointer;
+    }
+    
+    .start-episode button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 9px;
+        font-weight: bold;
+        color: white;
+        background-color: #e50914;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
+        cursor: pointer;
+    }
+
+    .start-episode button:hover {
+        opacity: 0.8;
+    }
+
+    .episode-thumbnail {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .episode-thumbnail img {
+        width: 100px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .episode-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .episode-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: white;
+        margin: 0;
+    }
+
+    .episode-description {
+        overflow: hidden;
+        position: relative;
+        transition: max-height 0.3s ease;
     }
 }
