@@ -1,0 +1,1537 @@
+ /* Existing CSS */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #141414;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Logo dan navigasi sejajar */
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.062);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+header img.logo {
+    width: 10vw; /* Unit responsif */
+    max-width: 120px; /* Batas maksimum */
+    padding-right: 0px;
+    margin-left: 100px;
+    margin-right: 55px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    align-items: center; /* Pastikan semua elemen sejajar vertikal */
+}
+
+nav ul li {
+    font-size: 16px;
+    position: relative; /* Dibutuhkan untuk dropdown positioning */
+    cursor: pointer;
+    padding: 10px;
+}
+
+#season-dropdown {
+    display: flex;
+    align-items: center; /* Agar teks "Season" sejajar secara vertikal */
+}
+
+#season-dropdown span {
+    font-size: 16px; /* Sama dengan elemen lainnya */
+    cursor: pointer;
+}
+
+#season-dropdown:hover #season-menu {
+    display: block; /* Tampilkan menu saat hover */
+}
+
+#season-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Tepat di bawah elemen dropdown */
+    left: 0;
+    background-color: #333;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 160px;
+    z-index: 10;
+}
+
+#season-menu li {
+    padding: 10px;
+}
+
+#season-menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+#season-menu li:hover {
+    background-color: #444; /* Warna hover untuk item dropdown */
+}
+#season-menu li:hover {
+    background-color: #444;
+}
+
+#season-dropdown:hover #season-menu {
+    display: block;
+}
+
+/* Kontainer utama (misalnya header atau navbar) */
+.header-container {
+    display: flex;
+    justify-content: flex-end; /* Elemen akan sejajar ke kanan */
+    align-items: center;
+    padding-left: 21px; /* Tambahkan padding sesuai kebutuhan */
+}
+
+/* Profil container tetap sama */
+.profile-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown-icon {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+}
+
+.dropdown a:hover {
+    background-color: #e50914; /* Netflix red hover effect */
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 20px; /* Jarak ke ikon lonceng */
+    margin-left: 190px;
+}
+
+.search-bar {
+    padding: 8px 10px;
+    border: 1px solid #333;
+    border-radius: 25px;
+    background-color: #141414;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    width: 450px;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar::placeholder {
+    color: #666; /* Placeholder text color */
+}
+
+.search-bar:focus {
+    border-color: #e50914; /* Netflix red */
+}
+
+.search-button {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button svg {
+    fill: #e50914; /* Netflix red */
+    transition: fill 0.3s ease;
+}
+
+.search-button:hover svg {
+    fill: white;
+}
+
+/* Notification container */
+.notification-container {
+    position: relative;
+    margin-right: 20px;
+    margin-left: 235px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.notification-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification badge */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e50914;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #141414; /* Latar belakang dropdown */
+    border: 1px solid #e50914;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 220px; /* Lebar dropdown */
+    padding: 15px;
+    border-radius: 6px;
+    display: none; /* Tersembunyi secara default */
+    z-index: 10;
+}
+
+.notification-item {
+    margin: 0 0 10px 0; /* Jarak ke bawah untuk tombol */
+    color: white;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Tombol untuk mengunjungi website */
+.visit-button {
+    width: 100%; /* Tombol penuh */
+    padding: 10px;
+    background-color: #e50914; /* Warna merah khas Netflix */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.visit-button:hover {
+    background-color: #f40612; /* Efek hover */
+}
+
+/* Tampilkan dropdown saat aktif */
+.dropdown.show {
+    display: block;
+}
+
+.hero {
+    position: relative;
+    text-align: left;
+    height: 100vh;
+    background: url('background landing page.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}    
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-left: 140px;
+    margin-top: 320px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    margin-right: 380px;
+    
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.hero-buttons button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero-buttons button i {
+    font-size: 1rem;
+}
+
+.hero-buttons button:hover {
+    opacity: 0.8;
+}
+
+.section-title {
+    margin-top: 60px;
+    margin-left: 150px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 kolom */
+    gap: 25px; /* Jarak antar foto */
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 50px;
+}
+
+.photo {
+    position: relative; /* Supaya overlay berada di atas gambar */
+    border-radius: 16px;
+    overflow: hidden; /* Membatasi konten yang keluar dari elemen ini */
+    cursor: pointer;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Efek animasi pada zoom */
+}
+
+.photo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.397); /* Warna hitam transparan */
+    transition: background 0.3s ease; /* Efek animasi pada overlay */
+}
+
+.photo:hover img {
+    transform: scale(1.1); /* Efek zoom hanya pada gambar */
+    cursor: pointer;
+}
+
+.photo:hover::after {
+    background: rgba(0, 0, 0, 0.048); /* Efek overlay hitam saat hover */
+}
+
+/* Modal Foto*/
+.fullscreen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Sembunyikan modal secara default */
+.hidden {
+    display: none;
+}
+
+/* Gambar Fullscreen */
+.fullscreen-img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Tombol Tutup */
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 700px; /* Sesuaikan dengan jarak yang diinginkan */
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1001;
+    text-align: center; /* Menjaga teks tetap di tengah */
+}
+
+.close-modal:hover {
+    color: #f44336;
+}
+
+footer {
+    padding: 20px;
+    background-color: #141414;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+footer ul li {
+    font-size: 0.8rem;
+}
+
+footer ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Modal CSS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #222;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90vw;
+    max-width: 600px;
+    color: white;
+    border-radius: 10px;
+    position: relative; /* Ensure position relative for child absolute positioning */
+}
+
+.modal-content p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    padding: 10px 10px;
+    background-color: #e50914;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-transform: capitalize;
+}
+
+.modal-content button i {
+    font-size: 1.2rem;
+}
+
+.modal-content button:hover {
+    opacity: 0.8;
+}
+
+.modal-content button:last-child {
+    margin-right: 0;
+}
+
+.modal-content .genre {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #e50914;
+    margin: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 10px; /* Adjust this value as needed */
+    right: 10px; /* Adjust this value as needed */
+    font-size: 2rem;
+    color: white;
+    cursor: pointer; /* Ensures the cursor changes to a pointer */
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.start-episode {
+    margin-top: 20px;
+}
+
+.start-episode h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.start-episode button {
+    padding: 10px 20px;
+    background-color: #e50914;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.start-episode button:hover {
+    opacity: 0.8;
+}
+
+.episode-thumbnail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.episode-thumbnail img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.episode-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.episode-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+}
+
+.episode-description {
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.3s ease;
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Contoh Penggunaan */
+.header,
+.hero,
+.movies-row,
+.footer,
+.modal-content {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.hero-page {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.hero-page.active {
+    left: 0;
+    opacity: 1;
+}
+
+.hero-page.slide-out-left {
+    left: -100%;
+    opacity: 0;
+}
+
+.hero-page.slide-out-right {
+    left: 100%;
+    opacity: 0;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+.nav-button.left {
+    left: 30px;
+}
+
+.nav-button.right {
+    right: 30px;
+}
+
+.hero-container {
+    position: relative;
+}
+
+.hero-page {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    padding: 0 40px 60px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-page video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width:1000px;
+    z-index: 1;
+    padding-top: 200px;
+}
+
+.page-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: white;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #e50914; 
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #f40612; 
+    transform: scale(1.05); 
+}
+
+.button:active {
+    background-color: #e50914; 
+    transform: scale(0.98); 
+}
+
+.button:focus {
+    outline: none; 
+}
+
+.episode-description .more-text {
+    display: none; 
+}
+
+.episode-description .read-more {
+    color: inherit; 
+}
+
+.episode-description .read-less {
+    color: inherit;
+}
+
+.no-style {
+    color: inherit; 
+    text-decoration: none; 
+    cursor: pointer; 
+}
+
+.no-style:hover {
+    text-decoration: underline; 
+}
+
+@media (max-width: 1280px) {
+
+    header img.logo {
+        margin-left: 60px;
+        margin-right: 55px;
+    }
+
+    .search-container {
+        margin-right: 20px; /* Jarak ke ikon lonceng */
+        margin-left: 0px;
+    }
+
+    .search-bar {
+        width: 300px;
+    }
+
+    /* Notification container */
+    .notification-container {
+        margin-right: 20px;
+        margin-left: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        margin-left: 70px;
+        margin-top: 0px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        margin-right: 30px;
+    }    
+
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 6 kolom */
+        gap: 25px; /* Jarak antar foto */
+        margin-left: 150px;
+        margin-right: 150px;
+        margin-bottom: 50px;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: -5px;
+        right: 470px; /* Sesuaikan dengan jarak yang diinginkan */
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        z-index: 1001;
+        text-align: center; /* Menjaga teks tetap di tengah */
+    }
+
+    .close-modal:hover {
+        color: #f44336;
+    }
+
+    .section-title {
+        margin-top: 60px;
+        margin-left: 110px;
+        margin-bottom: 30px;
+        font-size: 1.5rem;
+    }
+
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 6 kolom */
+        gap: 25px; /* Jarak antar foto */
+        margin-left: 110px;
+        margin-right: 110px;
+        margin-bottom: 50px;
+    }
+
+}
+
+@media (max-width: 1080px) {
+
+    header img.logo {
+        margin-left: 40px;
+        margin-right: 30px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+    
+
+    nav ul li {
+        font-size: 12px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    nav ul li:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    .search-container {
+        margin-right: 15px;
+        margin-left: 50px;
+    }
+
+    .search-bar {
+        width: 250px;
+    }
+
+    /* Notification container */
+    .notification-container {
+        margin-right: 15px;
+        margin-left: 15px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 500px;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+        margin-right: 20px;
+    }    
+
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 4 kolom */
+        gap: 20px; /* Jarak antar foto */
+        margin-left: 80px;
+        margin-right: 80px;
+        margin-bottom: 40px;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: -5px;
+        right: 350px; /* Sesuaikan dengan jarak yang diinginkan */
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+        z-index: 1001;
+        text-align: center; /* Menjaga teks tetap di tengah */
+    }
+
+    .close-modal:hover {
+        color: #f44336;
+    }
+
+    .section-title {
+        margin-top: 50px;
+        margin-left: 80px;
+        margin-bottom: 25px;
+        font-size: 1.3rem;
+    }
+
+    #season-dropdown span {
+        font-size: 12px;
+    }
+
+    #season-dropdown {
+        position: relative;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header img.logo {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        font-size: 10px;
+        padding: 5px 0;
+    }
+
+    nav ul li:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    #season-dropdown span {
+        font-size: 10px;
+    }
+
+    #season-dropdown {
+        position: relative;
+    }
+
+    #season-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        list-style: none;
+        padding: 5px 0;
+        margin: 0;
+        min-width: 120px;
+        z-index: 10;
+    }
+
+    #season-dropdown:hover #season-menu {
+        display: block;
+    }
+
+    .search-container {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .search-bar {
+        width: 200px;
+    }
+
+    /* Notification container */
+    .notification-container {
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 100%;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+
+    .hero p {
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }    
+
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+        gap: 10px; /* Jarak antar foto */
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: -5px;
+        right: 200px; /* Sesuaikan dengan jarak yang diinginkan */
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1001;
+        text-align: center; /* Menjaga teks tetap di tengah */
+    }
+
+    .close-modal:hover {
+        color: #f44336;
+    }
+
+    .section-title {
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+
+    header {
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; /* Logo dan navigasi sejajar */
+        align-items: center;
+        padding: 7px 50px;
+        background: rgba(0, 0, 0, 0.062);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+
+    header img.logo {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 12vh;
+    }
+
+    nav ul {
+        list-style: none;
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+
+    nav ul li:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    #season-dropdown span {
+        font-size: 12px;
+    }
+
+    #season-dropdown {
+        position: relative;
+    }
+
+    #season-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        list-style: none;
+        padding: 6px 0;
+        margin: 0;
+        min-width: 140px;
+        z-index: 10;
+    }
+
+    #season-dropdown:hover #season-menu {
+        display: block;
+    }
+
+    .search-container {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    .search-bar {
+        width: 280px;
+    }
+
+    /* Notification container */
+    .notification-container {
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero {
+        position: relative;
+        text-align: left;
+        height: 50vh; /* Setengah tinggi layar */
+        background: none; /* Hilangkan background image karena kita akan gunakan img */
+        display: flex;
+        align-items: center;
+        padding: 50px;
+        overflow: hidden; /* Pastikan tidak ada bagian gambar yang keluar */
+    }
+    
+    .hero img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Buat gambar menutupi kontainer */
+        object-fit: cover; /* Jaga rasio 16:9 sambil memenuhi kontainer */
+        z-index: -1; /* Pastikan gambar tetap di belakang konten */
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        margin: 0 auto; /* Pusatkan secara horizontal */
+        text-align: center; /* Pusatkan teks di dalam hero-content */
+        padding-top: 80px; /* Tambahkan padding untuk jarak yang nyaman */
+    }
+    
+    .hero h1 {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align:left; /* Pastikan teks di tengah */
+    }
+    
+    .hero p {
+        font-size: 0.8rem;
+        margin-bottom: 30px;
+        margin-right: 200px; /* Hilangkan jarak hanya di kanan */
+        margin-left: auto; /* Tambahkan agar tetap seimbang */
+        text-align: left; /* Pastikan teks di tengah */
+    }
+
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 2 kolom */
+        gap: 12px; /* Jarak antar foto */
+        margin-left: 70px;
+        margin-right: 70px;
+        margin-bottom: 20px;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: -5px;
+        right: 150px; /* Sesuaikan dengan jarak yang diinginkan */
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 1001;
+        text-align: center; /* Menjaga teks tetap di tengah */
+    }
+
+    .close-modal:hover {
+        color: #f44336;
+    }
+
+    .section-title {
+        margin-top: 40px;
+        margin-left: 70px;
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 425px) {
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between; /* Elemen rapi tanpa celah besar */
+        align-items: center;
+        padding: 5px 10px;
+        background: rgba(0, 0, 0, 0.167);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+
+    header img.logo {
+        width: 8vh; /* Ukuran logo lebih kecil */
+    }
+
+    .header-container{
+
+    }
+
+    .search-container {
+        flex: 1; /* Ambil ruang kosong di antara elemen */
+        display: flex;
+        justify-content: center; /* Pusatkan search bar */
+        align-items: center;
+        margin: 0 10px; /* Beri sedikit margin untuk keseimbangan */
+    }
+
+    .search-bar {
+        width: 100%; /* Buat selebar ruang yang tersedia */
+        max-width: 200px; /* Batasi lebar maksimal */
+        height: 24px;
+        font-size: 10px;
+        padding: 4px 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    .notification-container {
+        margin: 0;
+        width: 18px;
+        height: 18px;
+        position: relative;
+    }
+
+    .notification-badge {
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        background-color: #e50914;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 4px;
+        font-size: 8px;
+        font-weight: bold;
+        line-height: 1;
+        min-width: 12px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-container {
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Tambahkan sedikit jarak antar elemen */
+    }
+
+    .profile-pic {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .dropdown-icon {
+        width: 6px;
+        height: 6px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background: rgb(29, 29, 29);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+        white-space: nowrap;
+    }
+
+    .dropdown a:hover {
+        background-color: #e50914; /* Netflix red hover effect */
+        color: white;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hero {
+        position: relative;
+        text-align: left;
+        height: 40vh; /* Kurangi tinggi untuk layar kecil */
+        background: none; /* Hilangkan background image */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .hero-page {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 100%;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .hero h1 {
+        font-size: 0.7rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+
+    .hero p {
+        font-size: 0.5rem;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }    
+
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+        gap: 8px; /* Kurangi jarak antar foto */
+        margin: 0 10px;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .close-modal:hover {
+        color: #f44336;
+    }
+
+    .section-title {
+        margin: 20px 10px 12px;
+        font-size: 0.7rem;
+        text-align:left; /* Pusatkan judul */
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 6px;
+        cursor: pointer;
+        font-size: 0.5rem;
+        z-index: 10;
+    }
+
+    .nav-button.left {
+        left: 15px;
+    }
+
+    .nav-button.right {
+        right: 15px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .hero-buttons button {
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 0.5rem;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero-buttons button i {
+        font-size: 0.5rem;
+    }
+
+    .hero-buttons button:hover {
+        opacity: 0.8;
+    }
+}

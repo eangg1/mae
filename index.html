@@ -1,35 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kue</title>
-    <link rel="stylesheet" href="index.css" />
+    <title>Netflix Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_N_logo.svg" type="image/svg+xml"> <!-- Favicon -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('assets/background landing page.jpg') no-repeat center center/cover;
+            color: white;
+            overflow: hidden;
+        }
+
+/* Untuk layar kecil seperti smartphone */
+        @media only screen and (max-width: 600px) {
+            body {
+            background: url('assets/bg landing page hp.jpeg') no-repeat center center/cover;
+            }
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.7);
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            position: relative;
+            transition: opacity 1s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        .content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .email-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .email-form input {
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            margin: 5px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .email-form button {
+            padding: 15px;
+            font-size: 1rem;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .email-form button:hover {
+            background-color: #f40612;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #b3b3b3;
+        }
+
+        .footer a {
+            color: #b3b3b3;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function checkBirthday(event) {
+            event.preventDefault();
+            const birthdayInput = document.getElementById('birthday').value;
+            const validBirthday = '2008-03-31'; // Format YYYY-MM-DD
+    
+            if (birthdayInput === validBirthday) {
+                const overlay = document.querySelector('.overlay');
+                overlay.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    window.location.href = 'account.html'; 
+                }, 1000);
+            } else {
+                window.location.href = 'https://www.netflix.com/id/';
+            }
+        }
+    </script>
 </head>
+
 <body>
-    <h1>Happy Birthdayy Maee!!</h1>
-    <h3>ini kue buat maee</h3>
-    <div class="body"></div>
-    <div class="cake">
-        <div class="plate"></div>
-        <div class="layer layer-bottom"></div>
-        <div class="layer layer-middle"></div>
-        <div class="layer layer-top"></div>
-        <div class="icing"></div>
-        <div class="drip drip1"></div>
-        <div class="drip drip2"></div>
-        <div class="drip drip3"></div>
-        <div class="candle">
-            <div class="flame" id="toggleFlame"></div>
-            <a href="ucapan.html" class="flame2" id="texttoggleFlame">liat kadonya</a>
+    <div class="overlay">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+        </div>
+        <div class="content">
+            <h1>Unlimited memories, celebrations, and joy.</h1>
+            <p>Celebrate anywhere. Memories forever. Ready to watch? Enter your date of birth to continue.</p>
+            <form class="email-form" onsubmit="checkBirthday(event)">
+                <input type="date" id="birthday" placeholder="Date of Birth" required>
+                <button type="submit">Get Started</button>
+            </form>
+        </div>
+        <div class="footer">
+            <p>Questions? Call <a href="https://wa.me/+6281385868453">+62 813 8586 8453</a></p>
         </div>
     </div>
-    <audio id="birthdaySong" autoplay>
-    <source src="brthday.mp3" type="audio/ogg"> 
-    <source src="brthday.mpeg" type="audio/mpeg">
-    <source src="brthday.mp3" type="audio/mp3">
-</audio>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="index.js"></script>
 </body>
+
 </html>

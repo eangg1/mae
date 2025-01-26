@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #141414;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.profiles {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.profile {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: profileFadeIn 1s forwards;
+    animation-delay: 0.5s;
+    flex: 1;
+    max-width: 150px;
+}
+
+.profile img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.profile:hover img {
+    border-color: #e50914;
+}
+
+.profile-name {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.manage-profiles {
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: #b3b3b3;
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+}
+
+.manage-profiles:hover {
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes profileFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .profiles {
+        gap: 1.5rem;
+    }
+
+    .profile {
+        max-width: 180px;
+    }
+
+    .profile-name {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .profiles {
+        gap: 2rem;
+    }
+
+    .profile {
+        max-width: 200px;
+    }
+
+    .profile-name {
+        font-size: 1.6rem;
+    }
+}

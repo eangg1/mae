@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Info</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #141414;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e50914;
+    }
+
+    /* Netflix Logo without circle */
+    header .logo {
+      height: 30px;
+      cursor: pointer;
+    }
+
+    /* Profile Image in the Header */
+    header img.profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #e50914;
+    }
+
+    .profile-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Left Column for Links and Profile Image */
+    .left-column {
+      flex: 1;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* Aligns items to the top */
+      align-items: center;
+    }
+
+    .left-column a {
+      color: #e50914;
+      text-decoration: none;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .left-column a:hover {
+      text-decoration: underline;
+    }
+
+    /* Profile Image in Left Column */
+    .left-column img.profile-image {
+      width: 120px; /* Adjusted width */
+      height: 120px; /* Adjusted height */
+      border-radius: 10%;
+      border: 2px solid #e50914;
+      margin-bottom: 20px;
+    }
+
+    /* Right Column for Profile Information */
+    .right-column {
+      flex: 2;
+    }
+
+    .profile-section {
+      margin-bottom: 20px;
+    }
+
+    .profile-section span {
+      display: block;
+      font-weight: bold;
+      color: #b3b3b3;
+      margin-bottom: 5px;
+    }
+
+    .profile-section p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .profile-section p a {
+      color: #e50914;
+      text-decoration: none;
+    }
+
+    .profile-section p a:hover {
+      text-decoration: underline;
+    }
+
+    .profile-name {
+        text-align: center; /* Centers the name under the image */
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: -10px; /* Adds space between the image and the name */
+        margin-bottom: 50px;
+    }
+
+    footer {
+        padding: 10px;
+        background-color: #141414;
+        color: #b3b3b3;
+        text-align: center;
+    }
+
+    footer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    footer ul li {
+        font-size: 0.8rem;
+    }
+
+    footer ul li a {
+        color: #b3b3b3;
+        text-decoration: none;
+    }
+
+    footer ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      header .logo {
+        height: 25px;
+      }
+
+      header img.profile-pic {
+        width: 40px;
+        height: 40px;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .left-column {
+        margin-bottom: 20px;
+        align-items: center; /* Center align items on small screens */
+      }
+
+      .profile-section p {
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 20px;
+        font-size: 15px;
+      }
+      footer ul {
+        gap: 8px;
+        padding-bottom: 12px;
+      }
+
+      footer ul li {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      header img.profile-pic {
+        width: 30px;
+        height: 30px;
+      }
+
+      .profile-section p {
+        font-size: 12px;
+      }
+
+      footer {
+        padding: 15px; /* Adjust padding for smaller screens */
+        font-size: 14px;
+      }
+
+      footer ul {
+        gap: 6px; /* Reduce gap between list items */
+        padding-bottom: 10px;
+        padding-top: 5px;
+      }
+
+      footer ul li {
+        font-size: 0.7rem; /* Adjust font size for smaller screens */
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Header with Netflix Logo on the Left and Profile Picture on the Right -->
+  <header>
+    <a href="javascript:history.back()">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+  </a>
+    <img class="profile-pic" src="assets/wawa.jpg" alt="Profile Picture">
+  </header>
+
+  <!-- Body with Profile Information -->
+  <div class="profile-container">
+    
+    <!-- Left Column for Links and Profile Image -->
+    <div class="left-column">
+        <img class="profile-image" src="assets/wawa.jpg" alt="Profile Picture">
+        <p class="profile-name">Wawa</p> <!-- Name added below the image -->
+        <a href="https://wa.me/+6281385868453">Help Center</a>
+    </div>
+
+    <!-- Right Column for Profile Info -->
+    <div class="right-column">
+      <div class="profile-section">
+        <span>Account Name</span>
+        <p>wawa</p>
+      </div>
+
+      <div class="profile-section">
+        <span>Email</span>
+        <p>marvaanindya@gmail.com</p>
+      </div>
+
+      <div class="profile-section">
+        <span>Subscription Plan</span>
+        <p>Premium Plan</p>
+      </div>
+
+      <div class="profile-section">
+        <span>Next Billing Date</span>
+        <p>March 31, 2026</p>
+      </div>
+
+      <!-- Your Age Calculation Section -->
+      <div class="profile-section">
+        <span>Your Age</span>
+        <p id="age"></p> <!-- Age will be displayed here -->
+      </div>
+
+      <div class="profile-section">
+        <span>Time Until Next Birthday</span>
+        <p id="next-birthday"></p> <!-- Time until next birthday will be displayed here -->
+      </div>
+
+      <div class="profile-section">
+        <p><a href="#" id="logout-btn">Log Out</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <ul>
+        <li><a href="https://wa.me/+6281385868453">Contact Me</a></li>
+    </ul>
+    <p>
+        <a href="https://www.instagram.com/eean.js?igsh=MTg0NjVvbzNybGxyeg==" target="_blank" class="no-style">@eean.js</a> - All Rights Reserved
+    </p>
+</footer>
+
+</body>
+</html>
+
+<script>
+    function calculateAge() {
+    const birthDate = new Date('2008-03-31T00:00:00'); // Date of birth: 31 March 2008
+    const now = new Date(); // Current date and time
+    const diff = now - birthDate; // Difference in milliseconds
+
+    // Calculate the years, months, days, hours, minutes, and seconds
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // Display the age result
+    const ageDisplay = `${years} y, ${months} m, ${days} d, ${hours} h, ${minutes} min, ${seconds} sec`;
+    document.getElementById('age').innerText = ageDisplay;
+
+    // Calculate the time until the next birthday
+    let nextBirthday = new Date(birthDate);
+    nextBirthday.setFullYear(now.getFullYear());
+    if (now > nextBirthday) {
+        nextBirthday.setFullYear(now.getFullYear() + 1); // Jika ulang tahun tahun ini sudah lewat
+    }
+
+    // Calculate months and days until the next birthday
+    let monthsUntilNext = nextBirthday.getMonth() - now.getMonth();
+    if (monthsUntilNext < 0) {
+        monthsUntilNext += 12; // Adjust if crossing into a new year
+    }
+
+    // Adjust the nextBirthday to calculate remaining days accurately
+    let tempNextBirthday = new Date(nextBirthday);
+    tempNextBirthday.setMonth(now.getMonth() + monthsUntilNext);
+
+    // Calculate days remaining within the current month
+    let daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+    let remainingDaysInMonth = daysInCurrentMonth - now.getDate();
+    let daysUntilNext = tempNextBirthday.getDate() - now.getDate();
+    if (daysUntilNext < 0) {
+        daysUntilNext = remainingDaysInMonth + nextBirthday.getDate();
+    }
+
+    // Calculate hours, minutes, and seconds
+    const timeUntilNextBirthday = nextBirthday - now;
+    const hoursUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60 * 60)) / (1000 * 60));
+    const secondsUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60)) / 1000);
+
+    // Display the time until the next birthday
+    const nextBirthdayDisplay = `${monthsUntilNext} mo, ${daysUntilNext} d, ${hoursUntilNext} h, ${minutesUntilNext} min, ${secondsUntilNext} sec`;
+    document.getElementById('next-birthday').innerText = nextBirthdayDisplay;
+    }
+
+
+    // Call calculateAge function every second to update the age in real-time
+    setInterval(calculateAge, 1000);
+
+    document.getElementById('logout-btn').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default link behavior
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will be logged out!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e50914',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, log me out!',
+            customClass: {
+                popup: 'responsive-swal' // Add custom class for responsive styling
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect to log out page or perform logout action
+                window.location.href = 'index.html'; // Change this URL to the actual logout route
+            }
+        });
+    });
+  </script>

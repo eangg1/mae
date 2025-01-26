@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Netflix - Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="homepage/homepage.css">
+</head>
+
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="logo">
+        <nav>
+            <ul>
+                <li>TV Shows</li>
+                <li id="season-dropdown">
+                    <span>Season</span>
+                    <ul id="season-menu" class="custom-dropdown-menu">
+                        <li><a href="#" id="season1">Season 1</a></li>
+                        <li><a href="#" id="season2">Season 2</a></li>
+                    </ul>
+                </li>
+                <li>News</li>
+                <li>My List</li>
+            </ul>
+        </nav>
+    
+        <div class="header-container">
+            <!-- Search bar -->
+            <div class="search-container">
+                <input type="text" placeholder="Search" class="search-bar">
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                        <path d="M10 18c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 2c-5.523 0-10-4.477-10-10S4.477 0 10 0s10 4.477 10 10c0 2.389-.833 4.584-2.222 6.319l4.451 4.451-1.414 1.414-4.451-4.451C14.584 19.167 12.389 20 10 20z" />
+                    </svg>
+                </button>
+            </div>
+    
+
+
+            <!-- Notification bell -->
+            <div class="notification-container" onclick="toggleNotificationDropdown(event)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white">
+                    <path d="M12 22c1.104 0 2-.896 2-2h-4c0 1.104.896 2 2 2zm6-6v-5c0-3.315-2.014-6.16-4.885-7.212C13.062 3.324 12.552 3 12 3s-1.062.324-1.115.788C8.014 4.84 6 7.685 6 11v5l-1 1v1h14v-1l-1-1zm-7 1v-6h2v6h-2z"/>
+                </svg>
+                <span class="notification-badge">1</span>
+                <div id="notification-dropdown" class="dropdown hidden">
+                    <p class="notification-item">Kamu mendapat hadiah baru dari Eang!</p>
+                    <button class="visit-button" onclick="window.location.href='https://example.com'; event.stopPropagation();">
+                        Kunjungi Website
+                    </button>
+                </div>
+            </div>
+            
+            
+    
+    
+            <!-- Profile picture -->
+            <div class="profile-container" onclick="toggleProfileDropdown(event)">
+                <img src="assets/wawa.jpg" alt="Profile Picture" class="profile-pic">
+                <div class="dropdown-icon"></div>
+                <div id="profile-dropdown" class="dropdown hidden">
+                    <a href="profile.html">Profile</a>
+                    <a href="#" onclick="confirmLogout(event)">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-container">
+        <div class="hero hero-page" id="page1">
+            <img id="heroImage1" src="assets/thumbnail hero 1.jpg" alt="Background for Season 1">
+            <div class="hero-content">
+                <h1>Season 1: Flashback to 16</h1>
+                <p>"Flashback to 16" is a project that captures the essence of a memorable 16th birthday. This season features a digital creation of a birthday cake, gifts, and birthday messages, all brought to life through code.</p>
+                <div class="hero-buttons">
+                    <button id="more-info">
+                        <i class="fa fa-info-circle"></i> More Info
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hero hero-page" id="page2" style="display: none;">
+            <img id="heroImage2" src="assets/thumbnail hero 2.jpg" alt="Background for Season 2">
+            <div class="hero-content">
+                <h1>Season 2: 17 and Beyond:</h1>
+                <h1>Familly & Friends Tribute</h1>
+                <p>"17 and Beyond: Familly & Friend Tribute" celebrates the beginning of a new chapter as you step into your 17th year. This season focuses on heartfelt video messages from parents and loved ones, sharing their hopes, dreams, and words of wisdom as you approach this milestone. It's a season filled with love, encouragement, and the excitement of what lies ahead on the road to adulthood.</p>
+                <div class="hero-buttons">
+                    <button id="more-info">
+                        <i class="fa fa-info-circle"></i> More Info
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button class="nav-button left" id="prevButton">&#10094;</button>
+        <button class="nav-button right" id="nextButton">&#10095;</button>
+    
+        <div class="page-indicators">
+            <span class="indicator" data-page="0"></span>
+            <span class="indicator" data-page="1"></span>
+        </div>
+    </div>
+    
+    
+
+    <div class="movies">
+        <h2 class="section-title">More To Explore : Marva Anindya Daniswara</h2>
+        <div class="movies-row">
+            <div class="movies-row">
+                <div class="photo-gallery">
+                    <!-- Baris 1 -->
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0" onclick="openFullscreen('assets/9.jpg')">
+                        <img src="assets/9.jpg" alt="Photo 1">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" onclick="openFullscreen('assets/2.jpg')">
+                        <img src="assets/2.jpg" alt="Photo 2">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150" onclick="openFullscreen('assets/12.jpg')">
+                        <img src="assets/12.jpg" alt="Photo 4">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200" onclick="openFullscreen('assets/11.jpg')">
+                        <img src="assets/11.jpg" alt="Photo 5">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="250" onclick="openFullscreen('assets/13.jpg')">
+                        <img src="assets/13.jpg" alt="Photo 6">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300" onclick="openFullscreen('assets/1.jpg')">
+                        <img src="assets/1.jpg" alt="Photo 7">
+                    </div>
+
+
+                    <!-- Baris 2 -->
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0" onclick="openFullscreen('assets/9.jpg')">
+                        <img src="assets/9.jpg" alt="Photo 1">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" onclick="openFullscreen('assets/2.jpg')">
+                        <img src="assets/2.jpg" alt="Photo 2">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150" onclick="openFullscreen('assets/12.jpg')">
+                        <img src="assets/12.jpg" alt="Photo 4">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200" onclick="openFullscreen('assets/11.jpg')">
+                        <img src="assets/11.jpg" alt="Photo 5">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="250" onclick="openFullscreen('assets/13.jpg')">
+                        <img src="assets/13.jpg" alt="Photo 6">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300" onclick="openFullscreen('assets/1.jpg')">
+                        <img src="assets/1.jpg" alt="Photo 7">
+                    </div>
+            
+                    <!-- Baris 3 -->
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0" onclick="openFullscreen('assets/9.jpg')">
+                        <img src="assets/9.jpg" alt="Photo 1">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" onclick="openFullscreen('assets/2.jpg')">
+                        <img src="assets/2.jpg" alt="Photo 2">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150" onclick="openFullscreen('assets/12.jpg')">
+                        <img src="assets/12.jpg" alt="Photo 4">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200" onclick="openFullscreen('assets/11.jpg')">
+                        <img src="assets/11.jpg" alt="Photo 5">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="250" onclick="openFullscreen('assets/13.jpg')">
+                        <img src="assets/13.jpg" alt="Photo 6">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300" onclick="openFullscreen('assets/1.jpg')">
+                        <img src="assets/1.jpg" alt="Photo 7">
+                    </div>
+                </div>
+            </div>      
+        </div>
+    </div>
+
+    <div id="fullscreen-modal" class="fullscreen-modal hidden">
+        <img id="fullscreen-img" class="fullscreen-img" src="" alt="Fullscreen Photo">
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="https://wa.me/+6281385868453">Contact Me</a></li>
+        </ul>
+        <p>
+            <a href="https://www.instagram.com/eean.js?igsh=MTg0NjVvbzNybGxyeg==" target="_blank" class="no-style">@eean.js</a> - All Rights Reserved
+        </p>
+    </footer>
+
+    <!-- Modal 1 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Season 1: Flashback to 16</h2>
+            <img src="assets/S1.jpeg" alt="Movie Image">
+            <p class="genre">Genre: Documentary, Personal, Celebration, Drama, Comedy</p>
+            <p>welcome to Season 1 of a special celebration dedicated entirely to U, Marva! even though ur 16th birthday was a year ago and this was created last year, i wanted to remind u of this heartfelt collection of messages and warm wishes that i prepared for u. it’s a tribute to the wonderful person u are and the incredible journey u've had. enjoy this reminder of how special u are, even if it's a year later!</p>
+            <div class="start-episode">
+                <h2>Start Exploring</h2>
+                <div class="episode-thumbnail" id="episode1">
+                    <img src="assets/S1E1.png" alt="Episode 1 Thumbnail">
+                    <div class="episode-info">
+                        <p class="episode-title">S1 E1: Marva’s Sweet Surprise: A Timeless Cake Just for You</p>
+                        <p class="episode-description">
+                            remember this special cake shaped coding project created for ur 16th birthday? i dedicated days of hard work to bring it to life, even pushing through illness to make it perfect.
+                            <span class="more-text"> this custom coded cake is not just a visual delight but a symbol of the effort and love that went into making ur celebration unforgettable. i hope this reminder brings a smile to ur face and adds a touch of joy to ur day.</span>
+                            <a href="#" class="read-more" onclick="toggleText('episode1')">Read more</a>
+                        </p>
+                        <a href="https://eangg1.github.io/cake/" class="button" target="_blank">Explore Episode 1</a>
+                    </div>
+                </div>
+                
+                <div class="episode-thumbnail" id="episode2">
+                    <img src="assets/S1E2.png" alt="Episode 2 Thumbnail">
+                    <div class="episode-info">
+                        <p class="episode-title">S1 E2: Marva’s Timeless Gift: A Special Creation Just for You</p>
+                        <p class="episode-description">
+                            take a moment to revisit the special gift i crafted for ur 16th birthday. i dedicated countless hours to creating something truly unique, pouring all my effort into making it perfect.
+                            <span class="more-text"> this gift is more than just an item, it's a reflection of the care and dedication i put into celebrating ur special day. i hope this reminder brings a smile to ur face and adds a touch of joy to ur day.</span>
+                            <a href="#" class="read-more" onclick="toggleText('episode2')">Read more</a>
+                        </p>
+                        <a href="https://eangg1.github.io/kado/" class="button" target="_blank">Explore Episode 2</a>
+                    </div>
+                </div>
+                
+                <div class="episode-thumbnail" id="episode3">
+                    <img src="assets/S1E3.png" alt="Episode 3 Thumbnail">
+                    <div class="episode-info">
+                        <p class="episode-title">S1 E3: Marva’s Heartfelt Wishes: A Timeless Reminder of Your 16th Birthday</p>
+                        <p class="episode-description">
+                            again, though ur 16th birthday has passed, i wanted to remind u of the heartfelt wishes and messages i created just for u. every word was chosen with care to reflect the joy and admiration i have for u.
+                            <span class="more-text"> this collection of wishes is a reflection of the effort and thoughtfulness i put into celebrating ur special day, even through the challenges i faced. i hope these messages still bring a smile to ur face and remind u of the love and appreciation i have for u. XOXO</span>
+                            <a href="#" class="read-more" onclick="toggleText('episode3')">Read more</a>
+                        </p>
+                        <a href="https://eangg1.github.io/wishes/" class="button" target="_blank">Explore Episode 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Hero Page 2 -->
+    <div id="myModalPage2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Season 2: 17 and Beyond:
+                Familly & Friends Tribute</h2>
+            <img src="assets/S2.jpeg" alt="Movie Image">
+            <p class="genre">Genre: Documentary, Personal, Celebration, Drama, Comedy</p> <!-- New Genre Section -->
+            <p>Welcome to a special episode dedicated entirely to you, Marva! Today, we gather heartfelt messages and warm wishes from your parents and closest friends to make your 17th birthday unforgettable. From touching words of love to joyful expressions of celebration, this episode is all about honoring the wonderful person you are and the incredible journey you’ve had so far. Sit back, relax, and enjoy the heartfelt tributes as we celebrate YOU on this special day!</p>
+            <div class="start-episode">
+                <h2>Start Watching</h2>
+                <div class="episode-thumbnail" id="episode4" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="assets/S2E1.jpeg"Episode 3 Thumbnail">
+                    <div class="episode-info">
+                        <p class="episode-title">S2 E1: Special Greetings and Well-Wishes from Marva's Loved Ones</p>
+                        <p class="episode-description">
+                            happy sweet seventeen marvaa! in this first episode, we’ve gathered heartfelt messages from your parents and closest friends. 
+                            <span class="more-text"> watch the warm wishes and best prayers they have sent just for u. may these words make this special day even more meaningful and filled with joy!</span>
+                            <a href="#" class="read-more" onclick="toggleText('episode4')">Read more</a>
+                        </p>
+                    <a href="https://eangg1.github.io/cake/" class="button" target="_blank ">Watch Episode 1</a>
+                    </div>
+                </div>
+                <div class="episode-thumbnail" id="episode5" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                    <img src="https://via.placeholder.com/150x100" alt="Episode 4 Thumbnail">
+                    <div class="episode-info">
+                        <p class="episode-title">S2 E2: Marva’s 17th Birthday: A Journey of Joy and Memories</p>
+                        <p class="episode-description">
+                            in this second episode, we present a random video filled with exciting moments and surprises. 
+                            <span class="more-text"> a variety of clips, special memories, and unexpected events that make your birthday even more festive. may this video bring extra smiles and joy to ur special day!</span>
+                            <a href="#" class="read-more" onclick="toggleText('episode5')">Read More</a>
+                        </p>
+                        <a href="https://eangg1.github.io/cake/" class="button" target="_blank" >Watch Episode 2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="homepage/homepage.js"></script>
+</html>
